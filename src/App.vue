@@ -1,16 +1,33 @@
 <script setup lang="ts">
-const base = import.meta.env.BASE_URL;
+import { useTheme } from './composables/useTheme'
+
+const base = import.meta.env.BASE_URL
+const { theme, toggle } = useTheme()
+
+const bannerSpecs = [
+  '3-frame animation: statement → capsule claim → stat counter 0→412',
+  'Fixed 300×300 ISI panel — visible in all frames',
+  'HTML + CSS + TypeScript · under 1 MB total',
+  'Chrome · Safari · Firefox · Edge',
+]
+
+const emailSpecs = [
+  'Table-based · all inline CSS · bulletproof markup',
+  'Gmail · Apple Mail · Outlook 365 web · Outlook 2016 (VML fallback)',
+  'Dark palette · Helvetica throughout · ISI above footer',
+]
 </script>
 
 <template>
-  <div class="preview">
+  <div class="min-h-screen bg-canvas text-fg font-ds-body antialiased transition-colors duration-200">
 
     <!-- ── PAGE HEADER ── -->
-    <header class="preview__header">
-      <div class="preview__header-inner">
-        <div class="preview__brand">
-          <!-- Inline DSP lockup SVG so currentColor inherits correctly -->
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 56" role="img" aria-label="Deep Space Pharma" class="preview__dsp-svg">
+    <header class="border-b border-edge">
+      <div class="max-w-[1200px] mx-auto px-10 py-6 flex items-center gap-5">
+
+        <!-- DSP lockup (inline SVG so currentColor inherits) -->
+        <div class="shrink-0">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 56" role="img" aria-label="Deep Space Pharma" class="h-10 w-auto block text-fg">
             <g transform="translate(4 4)">
               <ellipse cx="24" cy="24" rx="22" ry="9" fill="none" stroke="currentColor" stroke-width="1.25" opacity="0.55" transform="rotate(-18 24 24)"/>
               <ellipse cx="24" cy="24" rx="9" ry="22" fill="none" stroke="currentColor" stroke-width="1.25" opacity="0.85" transform="rotate(-18 24 24)"/>
@@ -22,30 +39,42 @@ const base = import.meta.env.BASE_URL;
             <text x="178" y="17" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="8" opacity="0.65" fill="currentColor">®</text>
           </svg>
         </div>
-        <div class="preview__title-block">
-          <h1 class="preview__title">Stellaria™ Launch Assets</h1>
-          <p class="preview__meta">STL-PI-2095-03 · Front-End Preview</p>
+
+        <!-- Title block -->
+        <div class="border-l border-edge pl-5 flex-1">
+          <h1 class="text-[28px] font-medium tracking-[-0.02em] text-fg leading-tight">Stellaria™ Launch Assets</h1>
+          <p class="font-ds-mono text-[10px] tracking-[0.14em] uppercase text-faint mt-1">STL-PI-2095-03 · Front-End Preview</p>
         </div>
+
+        <!-- Theme toggle -->
+        <button
+          @click="toggle"
+          class="ml-auto shrink-0 w-8 h-8 flex items-center justify-center rounded-sm border border-edge text-faint hover:text-fg hover:border-fg/40 transition-colors duration-150 font-ds-mono text-base leading-none cursor-pointer"
+          :aria-label="`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`"
+        >{{ theme === 'dark' ? '○' : '●' }}</button>
       </div>
     </header>
 
     <!-- ── DELIVERABLES ── -->
-    <main class="preview__main">
+    <main class="max-w-[1200px] mx-auto px-10 pt-12 pb-16 grid grid-cols-[360px_1fr] gap-14 items-start max-[860px]:grid-cols-1 max-[860px]:px-6 max-[860px]:pt-8 max-[860px]:pb-12">
 
       <!-- BANNER -->
-      <section class="preview__section">
-        <div class="preview__section-head">
+      <section class="flex flex-col gap-5">
+        <div class="flex items-start justify-between gap-4">
           <div>
-            <span class="preview__label">01 / Banner Ad</span>
-            <h2 class="preview__section-title">300 × 600 Animated HTML5</h2>
+            <span class="block font-ds-mono text-[10px] tracking-[0.14em] uppercase text-ds-plasma-500 mb-1">01 / Banner Ad</span>
+            <h2 class="text-[21px] font-medium text-fg tracking-[-0.02em]">300 × 600 Animated HTML5</h2>
           </div>
-          <a :href="`${base}banner/`" target="_blank" rel="noopener" class="preview__link">
-            Open ↗
-          </a>
+          <a
+            :href="`${base}banner/`"
+            target="_blank"
+            rel="noopener"
+            class="font-ds-mono text-[13px] text-ds-plasma-500 no-underline whitespace-nowrap pt-0.5 transition-colors duration-150 hover:text-ds-plasma-300"
+          >Open ↗</a>
         </div>
 
-        <div class="preview__banner-wrap">
-          <div class="preview__banner-border">
+        <div class="flex justify-center">
+          <div class="border border-edge rounded-[2px] overflow-hidden w-[300px] h-[600px] shrink-0 shadow-[0_0_0_1px_rgba(111,228,243,0.06),0_24px_48px_rgba(0,0,0,0.6)]">
             <iframe
               :src="`${base}banner/`"
               width="300"
@@ -53,31 +82,36 @@ const base = import.meta.env.BASE_URL;
               frameborder="0"
               scrolling="no"
               title="Stellaria™ 300×600 banner"
+              class="block w-[300px] h-[600px] border-0"
             ></iframe>
           </div>
         </div>
 
-        <ul class="preview__spec-list">
-          <li>3-frame animation: statement → capsule claim → stat counter 0→412</li>
-          <li>Fixed 300×300 ISI panel — visible in all frames</li>
-          <li>HTML + CSS + TypeScript · under 1 MB total</li>
-          <li>Chrome · Safari · Firefox · Edge</li>
+        <ul class="list-none flex flex-col gap-[5px]">
+          <li
+            v-for="spec in bannerSpecs"
+            :key="spec"
+            class="text-[13px] text-faint pl-[14px] relative leading-[1.5] before:content-['–'] before:absolute before:left-0 before:text-ds-plasma-500"
+          >{{ spec }}</li>
         </ul>
       </section>
 
       <!-- EMAIL -->
-      <section class="preview__section preview__section--email">
-        <div class="preview__section-head">
+      <section class="flex flex-col gap-5">
+        <div class="flex items-start justify-between gap-4">
           <div>
-            <span class="preview__label">02 / HTML Email</span>
-            <h2 class="preview__section-title">600 px · Dark · HCP</h2>
+            <span class="block font-ds-mono text-[10px] tracking-[0.14em] uppercase text-ds-plasma-500 mb-1">02 / HTML Email</span>
+            <h2 class="text-[21px] font-medium text-fg tracking-[-0.02em]">600 px · Dark · HCP</h2>
           </div>
-          <a :href="`${base}email/`" target="_blank" rel="noopener" class="preview__link">
-            Open ↗
-          </a>
+          <a
+            :href="`${base}email/`"
+            target="_blank"
+            rel="noopener"
+            class="font-ds-mono text-[13px] text-ds-plasma-500 no-underline whitespace-nowrap pt-0.5 transition-colors duration-150 hover:text-ds-plasma-300"
+          >Open ↗</a>
         </div>
 
-        <div class="preview__email-wrap">
+        <div class="border border-edge rounded-[2px] overflow-hidden bg-ds-obsidian-900 shadow-[0_24px_48px_rgba(0,0,0,0.5)]">
           <iframe
             :src="`${base}email/`"
             width="100%"
@@ -85,220 +119,24 @@ const base = import.meta.env.BASE_URL;
             frameborder="0"
             scrolling="yes"
             title="Stellaria™ HCP email"
+            class="block w-full min-h-[800px]"
           ></iframe>
         </div>
 
-        <ul class="preview__spec-list">
-          <li>Table-based · all inline CSS · bulletproof markup</li>
-          <li>Gmail · Apple Mail · Outlook 365 web · Outlook 2016 (VML fallback)</li>
-          <li>Dark palette · Helvetica throughout · ISI above footer</li>
+        <ul class="list-none flex flex-col gap-[5px]">
+          <li
+            v-for="spec in emailSpecs"
+            :key="spec"
+            class="text-[13px] text-faint pl-[14px] relative leading-[1.5] before:content-['–'] before:absolute before:left-0 before:text-ds-plasma-500"
+          >{{ spec }}</li>
         </ul>
       </section>
 
     </main>
 
-    <footer class="preview__footer">
-      <p>© 2095 Deep Space Pharma · STL-PI-2095-03 (fictional)</p>
+    <footer class="border-t border-edge py-5 px-10 text-center">
+      <p class="font-ds-mono text-[10px] tracking-[0.14em] uppercase text-faint">© 2095 Deep Space Pharma · STL-PI-2095-03 (fictional)</p>
     </footer>
 
   </div>
 </template>
-
-<style>
-/* Global reset for preview page */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: var(--ds-obsidian-900); }
-</style>
-
-<style scoped>
-.preview {
-  min-height: 100vh;
-  background: var(--ds-obsidian-900);
-  color: var(--ds-ice-050);
-  font-family: var(--ds-font-body);
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ── HEADER ── */
-.preview__header {
-  border-bottom: 1px solid var(--ds-obsidian-600);
-}
-
-.preview__header-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 24px 40px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.preview__brand {
-  flex-shrink: 0;
-}
-
-.preview__dsp-svg {
-  height: 40px;
-  width: auto;
-  color: var(--ds-ice-050);
-  display: block;
-}
-
-.preview__title-block {
-  border-left: 1px solid var(--ds-obsidian-600);
-  padding-left: 20px;
-}
-
-.preview__title {
-  font-size: var(--ds-text-xl);
-  font-weight: 500;
-  letter-spacing: var(--ds-track-tight);
-  color: var(--ds-ice-050);
-  line-height: 1.1;
-}
-
-.preview__meta {
-  font-family: var(--ds-font-mono);
-  font-size: var(--ds-text-2xs);
-  letter-spacing: var(--ds-track-loose);
-  text-transform: uppercase;
-  color: var(--ds-ice-400);
-  margin-top: 4px;
-}
-
-/* ── MAIN ── */
-.preview__main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 48px 40px 60px;
-  display: grid;
-  grid-template-columns: 360px 1fr;
-  gap: 56px;
-  align-items: start;
-}
-
-@media (max-width: 860px) {
-  .preview__main {
-    grid-template-columns: 1fr;
-    padding: 32px 24px 48px;
-  }
-}
-
-/* ── SECTION ── */
-.preview__section {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.preview__section-head {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.preview__label {
-  display: block;
-  font-family: var(--ds-font-mono);
-  font-size: var(--ds-text-2xs);
-  letter-spacing: var(--ds-track-loose);
-  text-transform: uppercase;
-  color: var(--ds-plasma-500);
-  margin-bottom: 4px;
-}
-
-.preview__section-title {
-  font-size: var(--ds-text-lg);
-  font-weight: 500;
-  color: var(--ds-ice-050);
-  letter-spacing: var(--ds-track-tight);
-}
-
-.preview__link {
-  font-family: var(--ds-font-mono);
-  font-size: var(--ds-text-sm);
-  color: var(--ds-plasma-500);
-  text-decoration: none;
-  white-space: nowrap;
-  padding-top: 2px;
-  transition: color var(--ds-dur-fast) var(--ds-ease-out);
-}
-.preview__link:hover { color: var(--ds-plasma-300); }
-
-/* ── BANNER WRAP ── */
-.preview__banner-wrap {
-  display: flex;
-  justify-content: center;
-}
-
-.preview__banner-border {
-  border: 1px solid var(--ds-obsidian-600);
-  border-radius: 2px;
-  overflow: hidden;
-  width: 300px;
-  height: 600px;
-  flex-shrink: 0;
-  /* Shadow to lift the banner off the page */
-  box-shadow: 0 0 0 1px rgba(111, 228, 243, 0.06), 0 24px 48px rgba(0, 0, 0, 0.6);
-}
-
-.preview__banner-border iframe {
-  display: block;
-  width: 300px;
-  height: 600px;
-  border: 0;
-}
-
-/* ── EMAIL WRAP ── */
-.preview__email-wrap {
-  border: 1px solid var(--ds-obsidian-600);
-  border-radius: 2px;
-  overflow: hidden;
-  background: var(--ds-obsidian-900);
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
-}
-
-.preview__email-wrap iframe {
-  display: block;
-  width: 100%;
-  min-height: 800px;
-}
-
-/* ── SPEC LIST ── */
-.preview__spec-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.preview__spec-list li {
-  font-size: var(--ds-text-sm);
-  color: var(--ds-ice-400);
-  padding-left: 14px;
-  position: relative;
-  line-height: 1.5;
-}
-.preview__spec-list li::before {
-  content: '–';
-  position: absolute;
-  left: 0;
-  color: var(--ds-plasma-500);
-}
-
-/* ── FOOTER ── */
-.preview__footer {
-  border-top: 1px solid var(--ds-obsidian-600);
-  padding: 20px 40px;
-  text-align: center;
-}
-
-.preview__footer p {
-  font-family: var(--ds-font-mono);
-  font-size: var(--ds-text-2xs);
-  letter-spacing: var(--ds-track-loose);
-  text-transform: uppercase;
-  color: var(--ds-ice-400);
-}
-</style>

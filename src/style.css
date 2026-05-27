@@ -1,2 +1,62 @@
-@import './tokens.css';
 @import 'tailwindcss';
+
+/* ── DS Palette → Tailwind utilities ─────────────────────────────
+   text-ds-obsidian-900  bg-ds-plasma-500  border-ds-obsidian-600 …
+   ─────────────────────────────────────────────────────────────── */
+@theme {
+  --color-ds-obsidian-900: #05070c;
+  --color-ds-obsidian-800: #0b1426;
+  --color-ds-obsidian-700: #152341;
+  --color-ds-obsidian-600: #233359;
+  --color-ds-ice-050:      #f5f7fb;
+  --color-ds-ice-200:      #d6dceb;
+  --color-ds-ice-400:      #98a3ba;
+  --color-ds-plasma-500:   #6fe4f3;
+  --color-ds-plasma-600:   #3fc6d8;
+  --color-ds-plasma-300:   #b5f1f8;
+  --color-ds-signal-warn:  #ffc75a;
+  --color-ds-paper-050:    #fbfcfe;
+  --color-ds-paper-100:    #eef1f7;
+
+  /* Fonts: font-ds-display  font-ds-body  font-ds-mono */
+  --font-ds-display: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-ds-body:    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-ds-mono:    ui-monospace, SFMono-Regular, Menlo, Consolas, "Courier New", monospace;
+}
+
+/* ── Semantic tokens (inline = live var reference, theme-aware) ───
+   bg-canvas  bg-card  border-edge  text-fg  text-faint  text-accent
+   ─────────────────────────────────────────────────────────────── */
+@theme inline {
+  --color-canvas: var(--t-canvas);
+  --color-card:   var(--t-card);
+  --color-edge:   var(--t-edge);
+  --color-fg:     var(--t-fg);
+  --color-faint:  var(--t-faint);
+  --color-accent: var(--t-accent);
+}
+
+/* Dark (default) */
+:root {
+  --t-canvas: #05070c;
+  --t-card:   #0b1426;
+  --t-edge:   #233359;
+  --t-fg:     #f5f7fb;
+  --t-faint:  #98a3ba;
+  --t-accent: #6fe4f3;
+}
+
+/* Light */
+:root[data-theme="light"] {
+  --t-canvas: #fbfcfe;
+  --t-card:   #eef1f7;
+  --t-edge:   #c5cde0;
+  --t-fg:     #05070c;
+  --t-faint:  #152341;
+  --t-accent: #3fc6d8;
+}
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background-color: var(--t-canvas); }
+}
