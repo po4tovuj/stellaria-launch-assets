@@ -1,0 +1,86 @@
+# Stellaria™ · Front-End Starter Spec
+**Deep Space Pharma · STL-PI-2095-03**
+
+## 1 · Design Tokens
+
+### Color
+
+| Token | Value | Usage |
+|---|---|---|
+| --ds-obsidian-900 | #05070C | Primary background. |
+| --ds-obsidian-800 | #0B1426 | Surface (cards, email body). |
+| --ds-obsidian-700 | #152341 | Raised surface. |
+| --ds-obsidian-600 | #233359 | Hairline border. |
+| --ds-ice-050      | #F5F7FB | Headlines (18.4:1). |
+| --ds-ice-200      | #D6DCEB | Body (14.5:1). |
+| --ds-ice-400      | #98A3BA | Meta / captions (7.5:1). |
+| --ds-plasma-500   | #6FE4F3 | Signature accent (11.9:1). |
+| --ds-paper-100    | #EEF1F7 | Light surface fallback. |
+| --ds-signal-warn  | #FFC75A | Boxed Warning rule only (12.8:1). |
+
+### Typography
+
+Single family, web-safe: **Helvetica Neue** → Helvetica, Arial, sans-serif.
+Monospace: ui-monospace → SFMono-Regular, Menlo, Consolas.
+
+| Step | Size | Weight |
+|---|---|---|
+| display-3xl | 48px | 500 |
+| display-2xl | 36px | 500 |
+| heading-xl  | 28px | 500 |
+| heading-lg  | 21px | 500 |
+| body-md     | 17px | 400 |
+| body-base   | 15px | 400 |
+| body-sm     | 13px | 400 |
+
+## 2 · Banner (300×600 animated HTML5 banner ad)
+
+Top 300×300 animates across F1 → F2 → F3; bottom 300×300 is fixed ISI, visible in every frame. Vertical slide transitions confined to the top region. CTA: **Learn More**.
+
+Motion is intentionally specified as directives, not timings. Exact durations, easings, delays, and motion offsets are open — pick values that read well and respect format-appropriate runtime expectations.
+
+## 3 · Email (600px)
+
+Fixed 600px, dark palette, Helvetica throughout. References above ISI; ISI above footer.
+
+## 4 · Copy
+
+**Banner**
+- F1 headline: Cryo-ready. Wake clear.
+- F2 headline: Zero post-thaw hangover in clinical trials.
+- F3 headline: Cleared for missions ≥ 90 days.
+- CTA: Learn More
+
+**Email**
+- Subject: Stellaria™: cryo-induction support for long-haul crew
+- Preheader: Indicated for hibernation-assist on missions ≥ 90 days. Please see full prescribing information.
+- Hero headline: Clarity on arrival.
+- CTA: Learn More
+
+## 5 · Important Safety Information
+
+### WARNING: ION DRIVE CO-EXPOSURE AND CARDIAC ARRHYTHMIA
+Concurrent ion drive co-exposure within 6 hours of Stellaria administration has been associated with prolonged QT interval and, in rare cases, Torsades-class arrhythmia during cryo-induction. Do not administer Stellaria within 6 hours of active ion drive proximity (≤ 40 m, shielded), or within 12 hours (unshielded). Obtain a baseline ECG prior to first dose and prior to any subsequent cryo-induction cycle.
+
+**Indication.** STELLARIA (morphanidine-C) tablets are indicated as hibernation-assist therapy in licensed deep-space personnel ≥ 21 years of age undergoing planned cryo-induction on missions of 90 days or longer.
+
+**Contraindications.** Known hypersensitivity to morphanidine-C; active cryo-sensitization syndrome (CSS); uncorrected Grade II telomeric instability; Class-III temporal stabilizers; pregnancy.
+
+**Warnings and Precautions.** See Boxed Warning. Hypothalamic set-point drift reported during first-exposure inductions; monitor core temperature 90 min post-thaw. Transient orientation loss may occur on re-animation; no EVA duties for 120 min post-thaw.
+
+**Adverse Reactions.** Most common (≥ 5%): dry mouth (11%), mild paresthesia (9%), transient temporal displacement (7%), metallic taste (6%), mild photosensitivity (5%).
+
+**Drug Interactions.** Avoid Class-III temporal stabilizers and MAOIs within 14 days. Ion drive co-exposure: see Boxed Warning. Caffeine analogs > 400 mg/day caf-eq may blunt induction onset.
+
+**Use in Specific Populations.** Pregnancy: contraindicated. Lactation: not recommended. Pediatric (< 21 y): not established. Hepatic/renal impairment: reduce dose 50% moderate; contraindicated severe.
+
+*Please see full Prescribing Information at stellaria-hcp.dsp.*
+
+## 6 · Asset manifest
+
+- assets/stellaria-wordmark.svg
+- assets/deep-space-pharma-lockup.svg
+- assets/stellaria-capsule.svg
+- assets/tokens.css
+
+© 2095 Deep Space Pharma. STL-PI-2095-03 (fictional).
