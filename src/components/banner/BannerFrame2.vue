@@ -5,7 +5,7 @@ defineProps<{ state: 'active' | 'past' | 'future' }>()
 <template>
   <div class="banner-frame banner-frame--2" :data-state="state">
 
-    <!-- Capsule: absolutely positioned behind text content -->
+    <!-- Capsule: large, lower-right, behind text -->
     <img
       src="/src/assets/stellaria-capsule.png"
       alt=""
@@ -13,7 +13,7 @@ defineProps<{ state: 'active' | 'past' | 'future' }>()
       aria-hidden="true"
     />
 
-    <!-- Text content sits above capsule via z-index -->
+    <!-- Text content floats above capsule -->
     <div class="banner-content">
       <div class="banner-wm-row">
         <img src="/src/assets/stellaria-wordmark.svg" alt="STELLARIA" class="banner-wordmark" width="140" height="24" />
@@ -48,27 +48,26 @@ defineProps<{ state: 'active' | 'past' | 'future' }>()
 .banner-frame[data-state='active']  { opacity: 1; transform: translateY(0); pointer-events: auto; }
 .banner-frame[data-state='past']    { opacity: 0; transform: translateY(-10px); }
 
-/* Capsule: absolutely positioned in the right half, behind text */
+/* Capsule: large, anchored bottom-right, sits behind text */
 .banner-capsule {
   position: absolute;
-  right: -12px;
-  top: 50%;
-  transform: translateY(-42%);
-  width: 158px;
-  height: 158px;
+  right: -20px;
+  bottom: -10px;
+  width: 190px;
+  height: 190px;
   object-fit: contain;
   z-index: 0;
-  filter: drop-shadow(0 4px 28px rgba(111, 228, 243, 0.35));
+  filter: drop-shadow(0 4px 32px rgba(111, 228, 243, 0.40));
 }
 .banner-frame--2[data-state='active'] .banner-capsule {
   animation: capsule-enter 850ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 @keyframes capsule-enter {
-  from { opacity: 0; transform: translateY(-42%) scale(1.1) rotate(-8deg); }
-  to   { opacity: 1; transform: translateY(-42%) scale(1)   rotate(0deg); }
+  from { opacity: 0; transform: scale(1.12) rotate(-10deg); }
+  to   { opacity: 1; transform: scale(1)    rotate(0deg); }
 }
 
-/* Text content sits above capsule */
+/* Text content sits above capsule via z-index */
 .banner-content {
   position: relative;
   z-index: 1;
@@ -89,7 +88,8 @@ defineProps<{ state: 'active' | 'past' | 'future' }>()
 .banner-wordmark  { height: 24px; width: auto; display: block; flex-shrink: 0; }
 .banner-rx-only {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: #98a3ba; flex-shrink: 0;
+  font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: #98a3ba; flex-shrink: 0;
 }
 
 .banner-drug-name {
@@ -110,18 +110,22 @@ defineProps<{ state: 'active' | 'past' | 'future' }>()
   letter-spacing: -0.02em;
   color: #f5f7fb;
   margin-top: 10px;
-  /* max-width keeps text from fully covering the capsule */
-  max-width: 160px;
+  max-width: 155px;
 }
 .banner-sub {
   font-size: 10px;
   line-height: 1.45;
   color: #98a3ba;
   margin-top: 8px;
-  max-width: 160px;
+  max-width: 155px;
 }
 
-.banner-cta-row { margin-top: auto; flex-shrink: 0; display: flex; justify-content: flex-end; }
+.banner-cta-row {
+  margin-top: auto;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: flex-end;
+}
 .banner-btn {
   display: inline-flex;
   align-items: center;
