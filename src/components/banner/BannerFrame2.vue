@@ -5,33 +5,31 @@ defineProps<{ state: 'active' | 'past' | 'future' }>()
 <template>
   <div class="banner-frame banner-frame--2" :data-state="state">
 
-    <!-- Wordmark row -->
-    <div class="banner-wm-row">
-      <img src="/src/assets/stellaria-wordmark.svg" alt="STELLARIA" class="banner-wordmark" width="140" height="24" />
-      <span class="banner-rx-only">Rx Only</span>
-    </div>
+    <!-- Capsule: absolutely positioned behind text content -->
+    <img
+      src="/src/assets/stellaria-capsule.png"
+      alt=""
+      class="banner-capsule"
+      aria-hidden="true"
+    />
 
-    <!-- Drug name -->
-    <p class="banner-drug-name">Stellaria™ · Morphanidine-C 12&nbsp;mg</p>
-
-    <!-- Text left / capsule right -->
-    <div class="banner-body-row">
-      <div class="banner-text-col">
-        <h1 class="banner-headline">Zero post-thaw hangover in clinical trials.</h1>
-        <p class="banner-sub">For licensed deep-space crew<br>prescribed pre-mission.</p>
+    <!-- Text content sits above capsule via z-index -->
+    <div class="banner-content">
+      <div class="banner-wm-row">
+        <img src="/src/assets/stellaria-wordmark.svg" alt="STELLARIA" class="banner-wordmark" width="140" height="24" />
+        <span class="banner-rx-only">Rx Only</span>
       </div>
-      <img
-        src="/src/assets/stellaria-capsule.png"
-        alt=""
-        class="banner-capsule"
-        width="120"
-        height="120"
-      />
+
+      <p class="banner-drug-name">Stellaria™ · Morphanidine-C 12&nbsp;mg</p>
+
+      <h1 class="banner-headline">Zero post-thaw hangover in clinical trials.</h1>
+      <p class="banner-sub">For licensed deep-space crew prescribed pre-mission.</p>
+
+      <div class="banner-cta-row">
+        <a href="#" class="banner-btn">Learn More</a>
+      </div>
     </div>
 
-    <div class="banner-cta-row">
-      <a href="#" class="banner-btn">Learn More</a>
-    </div>
   </div>
 </template>
 
@@ -39,19 +37,46 @@ defineProps<{ state: 'active' | 'past' | 'future' }>()
 .banner-frame {
   position: absolute;
   inset: 0;
-  padding: 16px 20px 14px;
-  display: flex;
-  flex-direction: column;
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 550ms cubic-bezier(0.16, 1, 0.3, 1),
               transform 550ms cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
   will-change: opacity, transform;
+  overflow: hidden;
 }
 .banner-frame[data-state='active']  { opacity: 1; transform: translateY(0); pointer-events: auto; }
 .banner-frame[data-state='past']    { opacity: 0; transform: translateY(-10px); }
-.banner-frame--2 { justify-content: flex-start; }
+
+/* Capsule: absolutely positioned in the right half, behind text */
+.banner-capsule {
+  position: absolute;
+  right: -12px;
+  top: 50%;
+  transform: translateY(-42%);
+  width: 158px;
+  height: 158px;
+  object-fit: contain;
+  z-index: 0;
+  filter: drop-shadow(0 4px 28px rgba(111, 228, 243, 0.35));
+}
+.banner-frame--2[data-state='active'] .banner-capsule {
+  animation: capsule-enter 850ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes capsule-enter {
+  from { opacity: 0; transform: translateY(-42%) scale(1.1) rotate(-8deg); }
+  to   { opacity: 1; transform: translateY(-42%) scale(1)   rotate(0deg); }
+}
+
+/* Text content sits above capsule */
+.banner-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  padding: 16px 20px 14px;
+  display: flex;
+  flex-direction: column;
+}
 
 .banner-wm-row {
   display: flex;
@@ -73,58 +98,30 @@ defineProps<{ state: 'active' | 'past' | 'future' }>()
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #98a3ba;
-  margin-top: 8px;
+  margin-top: 10px;
   flex-shrink: 0;
-}
-
-/* Side-by-side: text left, capsule right */
-.banner-body-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex: 1;
-  min-height: 0;
-  margin-top: 6px;
-}
-.banner-text-col {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .banner-headline {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 500;
-  line-height: 1.18;
+  line-height: 1.15;
   letter-spacing: -0.02em;
   color: #f5f7fb;
+  margin-top: 10px;
+  /* max-width keeps text from fully covering the capsule */
+  max-width: 160px;
 }
 .banner-sub {
   font-size: 10px;
   line-height: 1.45;
   color: #98a3ba;
   margin-top: 8px;
+  max-width: 160px;
 }
 
-.banner-capsule {
-  width: 120px;
-  height: 120px;
-  object-fit: contain;
-  flex-shrink: 0;
-  filter: drop-shadow(0 4px 24px rgba(111, 228, 243, 0.30));
-}
-.banner-frame--2[data-state='active'] .banner-capsule {
-  animation: capsule-enter 800ms cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-@keyframes capsule-enter {
-  from { opacity: 0; transform: scale(1.08) translateY(8px) rotate(-6deg); }
-  to   { opacity: 1; transform: scale(1)    translateY(0)   rotate(0deg); }
-}
-
-.banner-cta-row { padding-top: 8px; flex-shrink: 0; }
+.banner-cta-row { margin-top: auto; flex-shrink: 0; display: flex; justify-content: flex-end; }
 .banner-btn {
   display: inline-flex;
   align-items: center;

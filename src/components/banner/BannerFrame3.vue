@@ -32,7 +32,7 @@ defineProps<{
       />
     </div>
 
-    <h1 class="banner-headline">Cleared for missions ≥ 90 days.</h1>
+    <h1 class="banner-headline">Cleared for missions ≥ 2.4&nbsp;AU.</h1>
     <p class="banner-sub">Studied across Mars-transit and Belt-rotation protocols.</p>
 
     <div class="banner-cta-row">
@@ -162,7 +162,7 @@ defineProps<{
   color: #98a3ba;
   margin-top: 6px;
 }
-.banner-cta-row { margin-top: auto; padding-top: 6px; flex-shrink: 0; }
+.banner-cta-row { margin-top: auto; padding-top: 6px; flex-shrink: 0; display: flex; justify-content: flex-end; }
 .banner-btn {
   display: inline-flex;
   align-items: center;

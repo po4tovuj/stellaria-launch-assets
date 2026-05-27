@@ -19,7 +19,7 @@ describe('COPY.banner', () => {
   it('headlines match spec copy', () => {
     expect(COPY.banner.frame1Headline).toBe('Cryo-ready. Wake clear.');
     expect(COPY.banner.frame2Headline).toBe('Zero post-thaw hangover in clinical trials.');
-    expect(COPY.banner.frame3Headline).toBe('Cleared for missions ≥ 90 days.');
+    expect(COPY.banner.frame3Headline).toBe('Cleared for missions ≥ 2.4 AU.');
     expect(COPY.banner.cta).toBe('Learn More');
   });
 });
