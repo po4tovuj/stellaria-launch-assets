@@ -15,6 +15,13 @@ describe('COPY.banner', () => {
   it('frame3Stat is a numeric string', () => {
     expect(Number(COPY.banner.frame3Stat)).not.toBeNaN();
   });
+
+  it('headlines match spec copy', () => {
+    expect(COPY.banner.frame1Headline).toBe('Cryo-ready. Wake clear.');
+    expect(COPY.banner.frame2Headline).toBe('Zero post-thaw hangover in clinical trials.');
+    expect(COPY.banner.frame3Headline).toBe('Cleared for missions ≥ 90 days.');
+    expect(COPY.banner.cta).toBe('Learn More');
+  });
 });
 
 describe('COPY.email', () => {

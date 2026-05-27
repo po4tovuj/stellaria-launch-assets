@@ -1,13 +1,13 @@
 export const COPY = {
   banner: {
     eyebrow: 'Rx Only',
-    frame1Headline: 'The only support pill for interstellar crew.',
+    frame1Headline: 'Cryo-ready. Wake clear.',
     frame1Sub: 'Stellaria™ (morphanidine-C) 12 mg tablets',
     frame2Headline: 'Zero post-thaw hangover in clinical trials.',
     frame2Sub: 'For licensed deep-space crew prescribed pre-mission.',
     frame3Stat: '412',
     frame3StatLabel: 'Pilots studied',
-    frame3Headline: 'Cleared for missions ≥2.4 AU.',
+    frame3Headline: 'Cleared for missions ≥ 90 days.',
     frame3Sub: 'Studied across Mars-transit and Belt-rotation protocols.',
     cta: 'Learn More',
     isiTitle: 'Important Safety Information',
