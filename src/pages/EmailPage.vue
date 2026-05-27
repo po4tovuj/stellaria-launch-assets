@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import EmailTemplate from '../components/email/EmailTemplate.vue'
 
-const base = import.meta.env.BASE_URL
-
 const specs = [
   'Table-based · all inline CSS · bulletproof XHTML markup',
   'Gmail (web/iOS/Android) · Apple Mail (macOS/iOS) · Outlook 365 web · Outlook 2016 (VML CTA fallback)',
@@ -23,12 +21,6 @@ const specs = [
           Table-based · bulletproof · Outlook 2016 VML fallbacks
         </p>
       </div>
-      <a
-        :href="`${base}email/`"
-        target="_blank"
-        rel="noopener"
-        class="shrink-0 font-ds-mono text-[11px] tracking-[0.1em] uppercase text-ds-plasma-500 no-underline border border-ds-plasma-500/30 px-3 py-2 rounded-[2px] transition-colors duration-150 hover:border-ds-plasma-500 hover:bg-ds-plasma-500/5 whitespace-nowrap"
-      >Open full HTML ↗</a>
     </div>
 
     <!-- Metadata row -->

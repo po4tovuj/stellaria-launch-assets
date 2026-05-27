@@ -10,7 +10,6 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        email: resolve(__dirname, 'email/index.html'),
       },
     },
   },
