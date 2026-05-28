@@ -6,178 +6,118 @@ defineProps<{
 </script>
 
 <template>
-  <div class="banner-frame banner-frame--3" :data-state="state">
+  <div class="banner-frame banner-frame--f3" :data-state="state">
 
-    <!-- Wordmark row -->
-    <div class="banner-wm-row">
-      <img src="/src/assets/stellaria-wordmark.svg" alt="STELLARIA" class="banner-wordmark" width="140" height="24" />
-      <span class="banner-rx-only">Rx Only</span>
+    <div class="banner-frame__header">
+      <img src="/src/assets/stellaria-wordmark.svg" alt="STELLARIA" class="h-6 w-auto block shrink-0" width="140" height="24" />
+      <span class="font-ds-mono text-[9px] tracking-[0.14em] uppercase text-ds-ice-400 shrink-0">Rx Only</span>
     </div>
 
-    <!-- Drug name -->
-    <p class="banner-drug-name">Stellaria™ · Morphanidine-C 12&nbsp;mg</p>
-
-    <!-- Counter left / capsule right — side by side -->
-    <div class="banner-mid-row">
-      <div class="banner-stat-block">
-        <span class="banner-counter-val">{{ counter }}</span>
-        <span class="banner-stat-label">Pilots studied</span>
+    <div class="flex items-center justify-between shrink-0 mt-[27px]">
+      <div class="banner-frame__stat-block">
+        <span class="banner-frame__counter-val">{{ counter }}</span>
+        <span class="banner-frame__stat-label">Pilots studied</span>
       </div>
       <img
         src="/src/assets/stellaria-capsule.png"
         alt=""
-        class="banner-capsule"
+        class="banner-frame__capsule"
         width="120"
         height="120"
       />
     </div>
 
-    <h1 class="banner-headline">Cleared for missions ≥ 2.4&nbsp;AU.</h1>
-    <p class="banner-sub">Studied across Mars-transit and Belt-rotation protocols.</p>
+    <h1 class="banner-frame__headline">Cleared for missions ≥ 2.4&nbsp;AU.</h1>
+    <p class="banner-frame__sub">Studied across Mars-transit and Belt-rotation protocols.</p>
 
-    <div class="banner-cta-row">
-      <a href="#" class="banner-btn">Learn More</a>
+    <div class="banner-frame__cta-row">
+      <a href="#" class="banner-frame__cta-btn">Learn More</a>
     </div>
   </div>
 </template>
 
 <style scoped>
+@reference "../../style.css";
+
+/* ── Frame base & state transitions ─────────────────────────── */
 .banner-frame {
-  position: absolute;
-  inset: 0;
-  padding: 16px 20px 14px;
-  display: flex;
-  flex-direction: column;
-  opacity: 0;
+  @apply absolute inset-0 px-5 pt-4 pb-[14px] flex flex-col opacity-0 pointer-events-none will-change-[opacity,transform];
   transform: translateY(10px);
   transition: opacity 550ms cubic-bezier(0.16, 1, 0.3, 1),
               transform 550ms cubic-bezier(0.16, 1, 0.3, 1);
-  pointer-events: none;
-  will-change: opacity, transform;
 }
-.banner-frame[data-state='active']  { opacity: 1; transform: translateY(0); pointer-events: auto; }
-.banner-frame[data-state='past']    { opacity: 0; transform: translateY(-10px); }
-.banner-frame--3 { justify-content: flex-start; }
+.banner-frame[data-state='active'] {
+  @apply opacity-100 pointer-events-auto;
+  transform: translateY(0);
+}
+.banner-frame[data-state='past'] {
+  @apply opacity-0;
+  transform: translateY(-10px);
+}
+.banner-frame--f3 { @apply justify-start; }
 
-.banner-wm-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-shrink: 0;
-  padding-bottom: 8px;
-  border-bottom: 1px solid rgba(35, 51, 89, 0.6);
-}
-.banner-wordmark  { height: 24px; width: auto; display: block; flex-shrink: 0; }
-.banner-rx-only {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: #98a3ba; flex-shrink: 0;
+/* ── Header row: wordmark + Rx badge ────────────────────────── */
+.banner-frame__header {
+  @apply flex items-center justify-between shrink-0 pb-2 border-b border-ds-obsidian-600/60;
 }
 
-.banner-drug-name {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 8px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #98a3ba;
-  margin-top: 8px;
-  flex-shrink: 0;
+/* ── Stat block: counter + label ─────────────────────────────── */
+.banner-frame__stat-block {
+  @apply flex flex-col items-start shrink-0;
+}
+.banner-frame__counter-val {
+  @apply font-ds-body text-[60px] font-medium leading-[0.9] tracking-[-0.04em] text-ds-plasma-500 tabular-nums;
+}
+.banner-frame__stat-label {
+  @apply font-ds-mono text-[9px] tracking-[0.14em] uppercase text-ds-ice-400 mt-[5px];
 }
 
-/* Counter left / capsule right */
-.banner-mid-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-shrink: 0;
-  margin-top: 6px;
-}
-.banner-stat-block {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-.banner-counter-val {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 60px;
-  font-weight: 500;
-  line-height: 0.9;
-  letter-spacing: -0.04em;
-  color: #6fe4f3;
-  font-variant-numeric: tabular-nums;
-}
-.banner-stat-label {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 9px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #98a3ba;
-  margin-top: 5px;
-}
-
-.banner-capsule {
-  width: 120px;
-  height: 120px;
-  object-fit: contain;
-  flex-shrink: 0;
+/* ── Capsule image ───────────────────────────────────────────── */
+.banner-frame__capsule {
+  @apply w-[120px] h-[120px] object-contain shrink-0;
   filter: drop-shadow(0 4px 20px rgba(111, 228, 243, 0.25));
 }
-.banner-frame--3[data-state='active'] .banner-capsule {
+.banner-frame--f3[data-state='active'] .banner-frame__capsule {
   animation: capsule-enter 700ms 200ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 @keyframes capsule-enter {
   from { opacity: 0; transform: scale(1.06) rotate(8deg); }
-  to   { opacity: 1; transform: scale(1)    rotate(0deg); }
+  to   { opacity: 1; transform: scale(1) rotate(0deg); }
 }
 
-.banner-frame--3[data-state='active'] .banner-stat-block {
+/* ── Body copy ───────────────────────────────────────────────── */
+.banner-frame__headline {
+  @apply font-ds-body text-[15px] font-medium leading-[1.2] tracking-[-0.02em] text-ds-ice-050 mt-2;
+}
+.banner-frame__sub {
+  @apply text-[10px] leading-[1.45] text-ds-ice-400 mt-[6px];
+}
+
+/* ── CTA ─────────────────────────────────────────────────────── */
+.banner-frame__cta-row {
+  @apply mt-auto pt-[6px] shrink-0 flex justify-end;
+}
+.banner-frame__cta-btn {
+  @apply inline-flex items-center justify-center h-[34px] px-5 bg-ds-plasma-500 text-ds-obsidian-900 font-ds-body text-[12px] font-bold tracking-[0.02em] no-underline rounded-sm;
+  transition: background 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.banner-frame__cta-btn:hover { @apply bg-ds-plasma-300; }
+
+/* ── Entrance animations ─────────────────────────────────────── */
+.banner-frame--f3[data-state='active'] .banner-frame__stat-block {
   animation: fade-up 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
-.banner-frame--3[data-state='active'] .banner-headline {
+.banner-frame--f3[data-state='active'] .banner-frame__headline {
   animation: fade-up 600ms 200ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
-.banner-frame--3[data-state='active'] .banner-sub {
+.banner-frame--f3[data-state='active'] .banner-frame__sub {
   animation: fade-up 600ms 340ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
-.banner-frame--3[data-state='active'] .banner-cta-row {
+.banner-frame--f3[data-state='active'] .banner-frame__cta-row {
   animation: fade-up 600ms 460ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(6px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
-.banner-headline {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  color: #f5f7fb;
-  margin-top: 8px;
-}
-.banner-sub {
-  font-size: 10px;
-  line-height: 1.45;
-  color: #98a3ba;
-  margin-top: 6px;
-}
-.banner-cta-row { margin-top: auto; padding-top: 6px; flex-shrink: 0; display: flex; justify-content: flex-end; }
-.banner-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 34px;
-  padding: 0 20px;
-  background: #6fe4f3;
-  color: #05070c;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-decoration: none;
-  border-radius: 2px;
-  transition: background 180ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-.banner-btn:hover { background: #b5f1f8; }
 </style>
