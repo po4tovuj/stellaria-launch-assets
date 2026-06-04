@@ -10,7 +10,7 @@ const specs = [
 </script>
 
 <template>
-  <div class="max-w-[1200px] mx-auto px-10 py-12 max-[640px]:px-5 max-[640px]:py-8">
+  <div class="max-w-300 mx-auto px-10 py-12 max-[640px]:px-5 max-[640px]:py-8">
 
     <!-- Page header -->
     <div class="flex items-start justify-between gap-6 mb-10">
@@ -24,17 +24,17 @@ const specs = [
     </div>
 
     <!-- Metadata row -->
-    <div class="grid grid-cols-3 gap-px mb-8 border border-edge rounded-[2px] overflow-hidden max-[640px]:grid-cols-1">
+    <div class="grid grid-cols-3 gap-px mb-8 border border-edge rounded-xs overflow-hidden max-[640px]:grid-cols-1">
       <div class="bg-card px-4 py-3">
-        <p class="font-ds-mono text-[9px] tracking-[0.1em] uppercase text-faint mb-1">Subject</p>
+        <p class="font-ds-mono text-[9px] tracking-widest uppercase text-faint mb-1">Subject</p>
         <p class="text-[13px] text-fg">Stellaria™: cryo-induction support for long-haul crew</p>
       </div>
       <div class="bg-card px-4 py-3">
-        <p class="font-ds-mono text-[9px] tracking-[0.1em] uppercase text-faint mb-1">Preheader</p>
+        <p class="font-ds-mono text-[9px] tracking-widest uppercase text-faint mb-1">Preheader</p>
         <p class="text-[13px] text-fg">Indicated for hibernation-assist on missions ≥ 90 days…</p>
       </div>
       <div class="bg-card px-4 py-3">
-        <p class="font-ds-mono text-[9px] tracking-[0.1em] uppercase text-faint mb-1">Hero headline</p>
+        <p class="font-ds-mono text-[9px] tracking-widest uppercase text-faint mb-1">Hero headline</p>
         <p class="text-[13px] text-fg">Clarity on arrival.</p>
       </div>
     </div>
@@ -49,7 +49,7 @@ const specs = [
         <li
           v-for="spec in specs"
           :key="spec"
-          class="text-[13px] text-faint pl-4 relative leading-[1.5] before:content-['–'] before:absolute before:left-0 before:text-ds-plasma-500"
+          class="text-[13px] text-faint pl-4 relative leading-normal before:content-['–'] before:absolute before:left-0 before:text-ds-plasma-500"
         >{{ spec }}</li>
       </ul>
     </div>
