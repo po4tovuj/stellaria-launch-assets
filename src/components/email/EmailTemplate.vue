@@ -6,8 +6,8 @@ import lockupUrl from '../../assets/deep-space-pharma-lockup.svg'
 
 <!--
   600px single-column HCP email.
-  Table-based, all inline CSS, bulletproof markup.
-  Renders cleanly in Gmail · Apple Mail · Outlook 365 web · Outlook 2016 (VML CTA fallback).
+  Table-based · all inline CSS · bulletproof XHTML markup.
+  Renders cleanly in Gmail · Apple Mail · Outlook 365 web · Outlook 2016 (VML CTA + icon fallbacks).
   Dark mode: explicit bg-color on every cell; prefers-color-scheme + [data-ogsc] overrides.
 -->
 <template>
@@ -25,12 +25,13 @@ import lockupUrl from '../../assets/deep-space-pharma-lockup.svg'
         <td align="center" valign="top" bgcolor="#05070c" style="background-color:#05070c;">
 
           <!-- CONTENT CONTAINER: 600px -->
-          <table class="et-container" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:600px;border:1px solid #233359;background-color:#05070c;">
+          <table class="et-container" width="600" cellpadding="0" cellspacing="0"
+            style="max-width:600px;width:600px;border:1px solid #233359;background-color:#05070c;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13px;color:#d6dceb;line-height:1.6;">
             <tbody>
 
             <!-- ══ HEADER ══ -->
             <tr>
-              <td class="et-pad" style="padding-top:28px;padding-bottom:20px;">
+              <td class="et-pad" style="padding:28px 32px 20px;">
                 <table width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tbody>
                   <tr>
@@ -42,7 +43,7 @@ import lockupUrl from '../../assets/deep-space-pharma-lockup.svg'
                       <!--[if mso]><span style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:22px;font-weight:500;color:#f5f7fb;letter-spacing:4px;">STELLARIA</span><![endif]-->
                     </td>
                     <td valign="middle" align="right">
-                      <span class="et-mono" style="color:#d6dceb;white-space:nowrap;">Rx&nbsp;Only</span>
+                      <span style="font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'Courier New',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#d6dceb;white-space:nowrap;">Rx&nbsp;Only</span>
                     </td>
                   </tr>
                   </tbody>
@@ -58,7 +59,7 @@ import lockupUrl from '../../assets/deep-space-pharma-lockup.svg'
             <!-- ══ HERO — eyebrow + headline + drug label ══ -->
             <tr>
               <td class="et-pad" style="padding:0 16px;">
-                <p class="et-mono" style="margin:0 0 14px 0;color:#d6dceb;">Now available for Fleet Medical formularies</p>
+                <p style="margin:0 0 14px 0;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'Courier New',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#d6dceb;">Now available for Fleet Medical formularies</p>
                 <h1 style="margin:0 0 14px 0;font-size:36px;font-weight:500;line-height:1.1;letter-spacing:-0.02em;color:#f5f7fb;">Clarity on arrival.</h1>
                 <p style="margin:0;color:#98a3ba;">Stellaria™ (morphanidine-C) 12&nbsp;mg tablets &mdash; prescription hibernation-assist for long-haul crew.</p>
               </td>
@@ -102,20 +103,21 @@ import lockupUrl from '../../assets/deep-space-pharma-lockup.svg'
             </tr>
 
             <!-- ══ CLINICAL PROFILE ══ -->
-            <tr style="width: 100%">
+            <tr>
               <td style="padding:40px 40px 48px;">
                 <table width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tbody>
                   <tr>
-                    <td colspan="2" class="et-pad">
-                      <p class="et-mono" style="margin:0 0 20px 0;color:#98a3ba;">Clinical Profile</p>
+                    <td colspan="2" class="et-pad" style="padding-left:32px;padding-right:32px;">
+                      <p style="margin:0 0 20px 0;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'Courier New',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#98a3ba;">Clinical Profile</p>
                     </td>
                   </tr>
 
                   <!-- Benefit 01 -->
                   <tr style="border-top:1px solid #233359;">
-                    <td style="padding:20px 0;">
-                      <p style="width:56px;height:56px;border:1px solid #233359;background-color:#0b1426;display:flex;align-items:center;">
+                    <td style="padding:20px 0;vertical-align:top;">
+                      <p style="width:56px;height:56px;border:1px solid #233359;background-color:#0b1426;display:flex;align-items:center;line-height:56px;text-align:center;">
+                        <!--[if !mso]><!-->
                         <svg viewBox="0 0 48 48" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#6fe4f3;display:block;margin:0 auto;">
                           <circle cx="24" cy="24" r="18" opacity="0.35"></circle>
                           <circle cx="24" cy="24" r="11" opacity="0.6"></circle>
@@ -123,10 +125,23 @@ import lockupUrl from '../../assets/deep-space-pharma-lockup.svg'
                           <circle cx="24" cy="6" r="1.3" fill="currentColor"></circle>
                           <circle cx="24" cy="42" r="1.3" fill="currentColor"></circle>
                         </svg>
+                        <!--<![endif]-->
+                        <!--[if mso]>
+                        <v:group style="display:inline-block;vertical-align:middle;width:30px;height:30px;" coordsize="48,48">
+                          <v:oval style="left:6;top:6;width:36;height:36;" strokecolor="#2e5d6e" strokeweight="1.5" filled="f" />
+                          <v:oval style="left:13;top:13;width:22;height:22;" strokecolor="#4791a1" strokeweight="1.5" filled="f" />
+                          <v:shape style="left:0;top:0;width:48;height:48;" coordsize="48,48" strokecolor="#6fe4f3" strokeweight="1.5" filled="f"
+                            path="m 4,24 l 14,24 17,18 20,30 23,22 26,26 29,20 32,28 35,24 44,24 e">
+                            <v:stroke endcap="round" joinstyle="round" />
+                          </v:shape>
+                          <v:oval style="left:22.7;top:4.7;width:2.6;height:2.6;" fillcolor="#6fe4f3" stroked="f" />
+                          <v:oval style="left:22.7;top:40.7;width:2.6;height:2.6;" fillcolor="#6fe4f3" stroked="f" />
+                        </v:group>
+                        <![endif]-->
                       </p>
                     </td>
-                    <td style="padding: 20px 0 20px 20px;">
-                      <p class="et-mono" style="margin:0 0 6px 0;color:#98a3ba;">01&nbsp;/&nbsp;Homeostatic support</p>
+                    <td style="padding:20px 0 20px 20px;vertical-align:top;">
+                      <p style="margin:0 0 6px 0;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'Courier New',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#98a3ba;">01&nbsp;/&nbsp;Homeostatic support</p>
                       <p style="margin:0 0 8px 0;font-size:17px;font-weight:500;line-height:1.3;color:#f5f7fb;">Stabilizes core functions through induction.</p>
                       <p style="margin:0;">Supports cardiovascular, metabolic, and neural homeostasis across the induction-to-thaw window without sustained sedative load.</p>
                     </td>
@@ -134,11 +149,28 @@ import lockupUrl from '../../assets/deep-space-pharma-lockup.svg'
 
                   <!-- Benefit 02 -->
                   <tr style="border-top:1px solid #233359;">
-                    <td style="padding:20px 0;">
-                      <p style="width:56px;height:56px;border:1px solid #233359;background-color:#0b1426;display:flex;align-items:center;"><svg viewBox="0 0 48 48" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#6fe4f3;display:block;margin:0 auto;"><line x1="3" y1="34" x2="45" y2="34"></line><path d="M 10 34 A 14 14 0 0 1 38 34"></path><line x1="24" y1="6" x2="24" y2="12"></line><line x1="10" y1="14" x2="14" y2="18"></line><line x1="38" y1="14" x2="34" y2="18"></line><line x1="4" y1="24" x2="9" y2="24"></line><line x1="44" y1="24" x2="39" y2="24"></line><circle cx="24" cy="34" r="1.6" fill="currentColor"></circle></svg></p>
+                    <td style="padding:20px 0;vertical-align:top;">
+                      <p style="width:56px;height:56px;border:1px solid #233359;background-color:#0b1426;display:flex;align-items:center;line-height:56px;text-align:center;">
+                        <!--[if !mso]><!-->
+                        <svg viewBox="0 0 48 48" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#6fe4f3;display:block;margin:0 auto;"><line x1="3" y1="34" x2="45" y2="34"></line><path d="M 10 34 A 14 14 0 0 1 38 34"></path><line x1="24" y1="6" x2="24" y2="12"></line><line x1="10" y1="14" x2="14" y2="18"></line><line x1="38" y1="14" x2="34" y2="18"></line><line x1="4" y1="24" x2="9" y2="24"></line><line x1="44" y1="24" x2="39" y2="24"></line><circle cx="24" cy="34" r="1.6" fill="currentColor"></circle></svg>
+                        <!--<![endif]-->
+                        <!--[if mso]>
+                        <v:group style="display:inline-block;vertical-align:middle;width:30px;height:30px;" coordsize="48,48">
+                          <v:shape style="left:0;top:0;width:48;height:48;" coordsize="48,48" strokecolor="#6fe4f3" strokeweight="1.5" filled="f"
+                            path="m 3,34 l 45,34 m 24,6 l 24,12 m 10,14 l 14,18 m 38,14 l 34,18 m 4,24 l 9,24 m 44,24 l 39,24 e">
+                            <v:stroke endcap="round" joinstyle="round" />
+                          </v:shape>
+                          <v:shape style="left:0;top:0;width:48;height:48;" coordsize="48,48" strokecolor="#6fe4f3" strokeweight="1.5" filled="f"
+                            path="m 10,34 at 10,20,38,48,10,34,38,34 e">
+                            <v:stroke endcap="round" joinstyle="round" />
+                          </v:shape>
+                          <v:oval style="left:22.4;top:32.4;width:3.2;height:3.2;" fillcolor="#6fe4f3" stroked="f" />
+                        </v:group>
+                        <![endif]-->
+                      </p>
                     </td>
-                    <td style="padding: 20px 0 20px 20px;">
-                      <p class="et-mono" style="margin:0 0 6px 0;color:#98a3ba;">02&nbsp;/&nbsp;Wake clarity</p>
+                    <td style="padding:20px 0 20px 20px;vertical-align:top;">
+                      <p style="margin:0 0 6px 0;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'Courier New',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#98a3ba;">02&nbsp;/&nbsp;Wake clarity</p>
                       <p style="margin:0 0 8px 0;font-size:17px;font-weight:500;line-height:1.3;color:#f5f7fb;">Eliminates post-thaw cognitive fog.</p>
                       <p style="margin:0;">In controlled trials, 94% of subjects achieved full psychomotor baseline within 30&nbsp;minutes of re-animation (vs. 12% on placebo).</p>
                     </td>
@@ -146,11 +178,28 @@ import lockupUrl from '../../assets/deep-space-pharma-lockup.svg'
 
                   <!-- Benefit 03 -->
                   <tr style="border-top:1px solid #233359;">
-                    <td style="padding:20px 0;">
-                      <p style="width:56px;height:56px;border:1px solid #233359;background-color:#0b1426;display:flex;align-items:center;"><svg viewBox="0 0 48 48" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#6fe4f3;display:block;margin:0 auto;"><path d="M 24 4 L 40 10 V 24 C 40 33 33 40 24 44 C 15 40 8 33 8 24 V 10 Z"></path><path d="M 17 24 L 22 29 L 32 19"></path><circle cx="24" cy="4" r="1.3" fill="currentColor"></circle></svg></p>
+                    <td style="padding:20px 0;vertical-align:top;">
+                      <p style="width:56px;height:56px;border:1px solid #233359;background-color:#0b1426;display:flex;align-items:center;line-height:56px;text-align:center;">
+                        <!--[if !mso]><!-->
+                        <svg viewBox="0 0 48 48" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#6fe4f3;display:block;margin:0 auto;"><path d="M 24 4 L 40 10 V 24 C 40 33 33 40 24 44 C 15 40 8 33 8 24 V 10 Z"></path><path d="M 17 24 L 22 29 L 32 19"></path><circle cx="24" cy="4" r="1.3" fill="currentColor"></circle></svg>
+                        <!--<![endif]-->
+                        <!--[if mso]>
+                        <v:group style="display:inline-block;vertical-align:middle;width:30px;height:30px;" coordsize="48,48">
+                          <v:shape style="left:0;top:0;width:48;height:48;" coordsize="48,48" strokecolor="#6fe4f3" strokeweight="1.5" filled="f"
+                            path="m 24,4 l 40,10 40,24 c 40,33 33,40 24,44 c 15,40 8,33 8,24 l 8,10 x e">
+                            <v:stroke endcap="round" joinstyle="round" />
+                          </v:shape>
+                          <v:shape style="left:0;top:0;width:48;height:48;" coordsize="48,48" strokecolor="#6fe4f3" strokeweight="1.5" filled="f"
+                            path="m 17,24 l 22,29 32,19 e">
+                            <v:stroke endcap="round" joinstyle="round" />
+                          </v:shape>
+                          <v:oval style="left:22.7;top:2.7;width:2.6;height:2.6;" fillcolor="#6fe4f3" stroked="f" />
+                        </v:group>
+                        <![endif]-->
+                      </p>
                     </td>
-                    <td style="padding: 20px 0 20px 20px;">
-                      <p class="et-mono" style="margin:0 0 6px 0;color:#98a3ba;">03&nbsp;/&nbsp;Fleet-tested</p>
+                    <td style="padding:20px 0 20px 20px;vertical-align:top;">
+                      <p style="margin:0 0 6px 0;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'Courier New',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#98a3ba;">03&nbsp;/&nbsp;Fleet-tested</p>
                       <p style="margin:0 0 8px 0;font-size:17px;font-weight:500;line-height:1.3;color:#f5f7fb;">Cleared for missions ≥90&nbsp;days.</p>
                       <p style="margin:0;">Studied across 412 pilots on Mars-transit and Belt-rotation protocols. Compatible with standard Class-II cryo berths.</p>
                     </td>
@@ -161,9 +210,9 @@ import lockupUrl from '../../assets/deep-space-pharma-lockup.svg'
             </tr>
 
             <!-- ══ REFERENCES ══ -->
-            <tr style="background-color: #0b1426;">
-              <td class="et-pad" style="padding-bottom:40px;border-top:1px solid #233359;">
-                <p class="et-mono" style="margin:20px 0 8px 0;color:#98a3ba;">References</p>
+            <tr style="background-color:#0b1426;">
+              <td class="et-pad" style="padding:0 32px 40px;border-top:1px solid #233359;">
+                <p style="margin:20px 0 8px 0;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'Courier New',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#98a3ba;">References</p>
                 <p style="margin:0 0 6px 0;font-size:11px;line-height:1.5;color:#98a3ba;">1. Okafor RN, Tanaka H, et al. ORION-3: A Phase III trial of morphanidine-C in cryo-induction support. <em>J Interstellar Med.</em> 2094;41(3):218–230.</p>
                 <p style="margin:0 0 6px 0;font-size:11px;line-height:1.5;color:#98a3ba;">2. Deep Space Pharma. STELLARIA (morphanidine-C) tablets prescribing information. Luna Prime, DSP; 2095.</p>
                 <p style="margin:0;font-size:11px;line-height:1.5;color:#98a3ba;">3. Fleet Medical Advisory 24-MC-07. Standards for pharmacologic cryo-induction support. UNSA Medical Command; 2094.</p>
@@ -182,8 +231,8 @@ import lockupUrl from '../../assets/deep-space-pharma-lockup.svg'
 
             <!-- ══ ISI — SECTIONS ══ -->
             <tr>
-              <td class="et-pad" bgcolor="#05070c" style="background-color:#05070c;padding-bottom:40px;display:flex;flex-direction:column;gap:10px;">
-                <p class="et-mono" style="margin:0 0 14px 0;color:#98a3ba;">Important Safety Information</p>
+              <td class="et-pad" bgcolor="#05070c" style="background-color:#05070c;padding:0 32px 40px;display:flex;flex-direction:column;gap:10px;">
+                <p style="margin:0 0 14px 0;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'Courier New',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#98a3ba;">Important Safety Information</p>
                 <p style="padding-bottom:10px;border-bottom:1px solid #233359;"><strong style="color:#f5f7fb;">Indication.</strong>&nbsp;STELLARIA (morphanidine-C) tablets are indicated as hibernation-assist therapy in licensed deep-space personnel ≥21&nbsp;years of age undergoing planned cryo-induction on missions of 90&nbsp;days or longer. Stellaria is intended for pre-mission administration under the supervision of a Fleet Medical Officer.</p>
                 <p style="padding-bottom:10px;border-bottom:1px solid #233359;"><strong style="color:#f5f7fb;">Contraindications.</strong>&nbsp;Stellaria is contraindicated in patients with: known hypersensitivity to morphanidine-C or any tablet excipient; active cryo-sensitization syndrome (CSS); uncorrected Grade&nbsp;II or higher telomeric instability; concurrent use of Class-III temporal stabilizers (e.g., chronazepam, temporalin); pregnancy confirmed or suspected at time of dosing.</p>
                 <p style="padding-bottom:10px;border-bottom:1px solid #233359;"><strong style="color:#f5f7fb;">Warnings and Precautions.</strong>&nbsp;Cardiac effects: see Boxed Warning. Hypothalamic set-point drift has been reported during first-exposure inductions; monitor core temperature for 90&nbsp;minutes post-thaw. Neuro-vestibular effects, including transient orientation loss, may occur on re-animation; patients should not perform EVA duties for 120&nbsp;minutes post-thaw.</p>
@@ -202,14 +251,14 @@ import lockupUrl from '../../assets/deep-space-pharma-lockup.svg'
                   style="display:block;max-width:200px;height:auto;margin-bottom:20px;color:#f5f7fb;" />
                 <!--<![endif]-->
                 <!--[if mso]><p style="margin:0 0 20px 0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;font-weight:700;color:#D6DCEB;letter-spacing:3px;">DEEP SPACE PHARMA</p><![endif]-->
-                <div class="et-footer" style="display:flex;flex-direction:column;gap:8px;font-size:11px;line-height:1.5;color:#98a3ba;">
-                  <p style="color:#D6DCEB;">Deep Space Pharma, Tower 4, Shackleton Medical Park, Luna Prime 00471.</p>
-                  <p>You received this because you are a licensed healthcare provider on the DSP Fleet Medical list. <a href="#" style="color:#6fe4f3;text-decoration:underline;">Unsubscribe</a> or <a href="#" style="color:#6fe4f3;text-decoration:underline;">update preferences</a>.</p>
+                <div style="display:flex;flex-direction:column;gap:8px;font-size:11px;line-height:1.5;color:#98a3ba;">
+                  <p style="margin:0;color:#D6DCEB;">Deep Space Pharma, Tower 4, Shackleton Medical Park, Luna Prime 00471.</p>
+                  <p style="margin:0;">You received this because you are a licensed healthcare provider on the DSP Fleet Medical list. <a href="#" style="color:#6fe4f3;text-decoration:underline;">Unsubscribe</a> or <a href="#" style="color:#6fe4f3;text-decoration:underline;">update preferences</a>.</p>
                 </div>
               </td>
             </tr>
             <tr>
-              <td class="et-pad" bgcolor="#0B1426" style="background-color:#0B1426; font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, 'Courier New', monospace;font-size:10px;color:#98A3BA;letter-spacing:0.12em;padding-top:14px;padding-bottom:32px;border-top:1px solid #233359;">
+              <td class="et-pad" bgcolor="#0B1426" style="background-color:#0B1426;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'Courier New',monospace;font-size:10px;color:#98A3BA;letter-spacing:0.12em;padding:14px 32px 32px;border-top:1px solid #233359;">
                 &#169; 2095 Deep Space Pharma. STELLARIA and the DSP travel mark are trademarks of Deep Space Pharma. STL-PI-2095-03.
               </td>
             </tr>
@@ -228,23 +277,13 @@ import lockupUrl from '../../assets/deep-space-pharma-lockup.svg'
 /*
   Email resets scoped to .et so they don't leak into the Vue app.
   In actual sent email, these live in the <head> <style> block.
+  Base rendering styles are all inline — classes here are hooks for
+  responsive overrides and dark-mode only.
 */
 .et table { border-collapse: collapse !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
 .et td, .et th { margin: 0 !important; }
 .et img { border: 0 !important; outline: none; text-decoration: none; display: block; }
 .et a { color: #6fe4f3; }
-
-/* Base typography — inherited by all content */
-.et-container { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; color: #d6dceb; line-height: 1.6; }
-
-/* Monospace label pattern */
-.et-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Courier New', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; }
-
-/* Section horizontal padding — inline styles only need top/bottom */
-.et-pad { padding-left: 32px; padding-right: 32px; }
-
-/* Footer text block */
-.et-footer p { margin: 0; }
 
 /* Dark-mode override for Outlook.com */
 [data-ogsc] .et { background-color: #05070c !important; }
