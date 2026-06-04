@@ -6,7 +6,7 @@ const { theme, toggle } = useTheme()
 
 <template>
   <header class="border-b border-edge">
-    <div class="max-w-[1200px] mx-auto px-10 py-6 flex items-center gap-5 max-[640px]:px-5 max-[640px]:py-4">
+    <div class="max-w-300 mx-auto px-10 py-6 flex items-center gap-5 max-[640px]:px-5 max-[640px]:py-4">
 
       <!-- DSP lockup (inline SVG — currentColor inherits CSS color) -->
       <RouterLink to="/" class="shrink-0" aria-label="Deep Space Pharma — home">
@@ -36,14 +36,14 @@ const { theme, toggle } = useTheme()
       <nav class="flex items-center gap-1" aria-label="Deliverables">
         <RouterLink
           to="/banner"
-          class="font-ds-mono text-[11px] tracking-[0.1em] uppercase px-3 py-1.5 rounded-[2px] transition-colors duration-150"
+          class="font-ds-mono text-[11px] tracking-widest uppercase px-3 py-1.5 rounded-xs transition-colors duration-150"
           :class="($route.path === '/banner')
             ? 'text-fg bg-edge'
             : 'text-faint hover:text-fg'"
         >Banner</RouterLink>
         <RouterLink
           to="/email"
-          class="font-ds-mono text-[11px] tracking-[0.1em] uppercase px-3 py-1.5 rounded-[2px] transition-colors duration-150"
+          class="font-ds-mono text-[11px] tracking-widest uppercase px-3 py-1.5 rounded-xs transition-colors duration-150"
           :class="($route.path === '/email')
             ? 'text-fg bg-edge'
             : 'text-faint hover:text-fg'"

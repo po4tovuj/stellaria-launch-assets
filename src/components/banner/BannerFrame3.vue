@@ -41,7 +41,7 @@ defineProps<{
 
 /* ── Frame base & state transitions ─────────────────────────── */
 .banner-frame {
-  @apply absolute inset-0 px-5 pt-4 pb-[14px] flex flex-col opacity-0 pointer-events-none will-change-[opacity,transform];
+  @apply absolute inset-0 px-5 pt-4 pb-3.5 flex flex-col opacity-0 pointer-events-none will-change-[opacity,transform];
   transform: translateY(10px);
   transition: opacity 550ms cubic-bezier(0.16, 1, 0.3, 1),
               transform 550ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -66,7 +66,7 @@ defineProps<{
   @apply flex flex-col items-start shrink-0;
 }
 .banner-frame__counter-val {
-  @apply font-ds-body text-[60px] font-medium leading-[0.9] tracking-[-0.04em] text-ds-plasma-500 tabular-nums;
+  @apply font-ds-body text-6xl font-medium leading-[0.9] tracking-[-0.04em] text-ds-plasma-500 tabular-nums;
 }
 .banner-frame__stat-label {
   @apply font-ds-mono text-[9px] tracking-[0.14em] uppercase text-ds-ice-400 mt-[5px];
@@ -74,7 +74,7 @@ defineProps<{
 
 /* ── Capsule image ───────────────────────────────────────────── */
 .banner-frame__capsule {
-  @apply w-[120px] h-[120px] object-contain shrink-0;
+  @apply w-30 h-30 object-contain shrink-0;
   filter: drop-shadow(0 4px 20px rgba(111, 228, 243, 0.25));
 }
 .banner-frame--f3[data-state='active'] .banner-frame__capsule {
@@ -90,15 +90,15 @@ defineProps<{
   @apply font-ds-body text-[15px] font-medium leading-[1.2] tracking-[-0.02em] text-ds-ice-050 mt-2;
 }
 .banner-frame__sub {
-  @apply text-[10px] leading-[1.45] text-ds-ice-400 mt-[6px];
+  @apply text-[10px] leading-[1.45] text-ds-ice-400 mt-1.5;
 }
 
 /* ── CTA ─────────────────────────────────────────────────────── */
 .banner-frame__cta-row {
-  @apply mt-auto pt-[6px] shrink-0 flex justify-end;
+  @apply mt-auto pt-1.5 shrink-0 flex justify-end;
 }
 .banner-frame__cta-btn {
-  @apply inline-flex items-center justify-center h-[34px] px-5 bg-ds-plasma-500 text-ds-obsidian-900 font-ds-body text-[12px] font-bold tracking-[0.02em] no-underline rounded-sm;
+  @apply inline-flex items-center justify-center h-[34px] px-5 bg-ds-plasma-500 text-ds-obsidian-900 font-ds-body text-xs font-bold tracking-[0.02em] no-underline rounded-sm;
   transition: background 180ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 .banner-frame__cta-btn:hover { @apply bg-ds-plasma-300; }

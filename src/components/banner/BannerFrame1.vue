@@ -16,7 +16,7 @@ defineProps<{ state: 'active' | 'past' | 'future' }>()
       <span class="font-ds-mono text-[9px] tracking-[0.14em] uppercase text-ds-ice-400 shrink-0">Rx Only</span>
     </div>
 
-    <div class="flex-1 flex flex-col justify-center pt-[6px]">
+    <div class="flex-1 flex flex-col justify-center pt-1.5">
       <h1 class="banner-frame__headline">The only support pill for interstellar crew.</h1>
     </div>
 
@@ -28,7 +28,7 @@ defineProps<{ state: 'active' | 'past' | 'future' }>()
 
 /* ── Frame base & state transitions ─────────────────────────── */
 .banner-frame {
-  @apply absolute inset-0 px-5 pt-4 pb-[14px] flex flex-col opacity-0 pointer-events-none will-change-[opacity,transform];
+  @apply absolute inset-0 px-5 pt-4 pb-3.5 flex flex-col opacity-0 pointer-events-none will-change-[opacity,transform];
   transform: translateY(10px);
   transition: opacity 550ms cubic-bezier(0.16, 1, 0.3, 1),
               transform 550ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -46,7 +46,7 @@ defineProps<{ state: 'active' | 'past' | 'future' }>()
 
 /* ── Header row: wordmark + Rx badge ────────────────────────── */
 .banner-frame__header {
-  @apply flex items-center justify-between shrink-0 pb-[10px] border-b border-ds-obsidian-600/60;
+  @apply flex items-center justify-between shrink-0 pb-2.5 border-b border-ds-obsidian-600/60;
 }
 
 /* ── Headline: heading-xl per design spec ────────────────────── */

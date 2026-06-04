@@ -55,7 +55,7 @@ defineProps<{ state: 'active' | 'past' | 'future' }>()
 
 /* ── Capsule: large, lower-centre, behind text ───────────────── */
 .banner-frame__capsule {
-  @apply absolute left-1/2 bottom-[10px] w-[150px] h-[150px] object-contain z-0;
+  @apply absolute left-1/2 bottom-2.5 w-[150px] h-[150px] object-contain z-0;
   transform: translateX(-50%);
   filter: drop-shadow(0 4px 32px rgba(111, 228, 243, 0.40));
 }
@@ -69,7 +69,7 @@ defineProps<{ state: 'active' | 'past' | 'future' }>()
 
 /* ── Content column: floats above capsule ────────────────────── */
 .banner-frame__content {
-  @apply relative z-[1] h-full px-5 pt-4 pb-[14px] flex flex-col;
+  @apply relative z-[1] h-full px-5 pt-4 pb-3.5 flex flex-col;
 }
 
 /* ── Header row: wordmark + Rx badge ────────────────────────── */
@@ -79,12 +79,12 @@ defineProps<{ state: 'active' | 'past' | 'future' }>()
 
 /* ── Headline: heading-xl per design spec ────────────────────── */
 .banner-frame__headline {
-  @apply font-ds-body text-[18px] font-medium leading-[1.15] tracking-[-0.02em] text-ds-ice-050 mt-[33px];
+  @apply font-ds-body text-lg font-medium leading-[1.15] tracking-[-0.02em] text-ds-ice-050 mt-[33px];
 }
 
 /* ── CTA button ──────────────────────────────────────────────── */
 .banner-frame__cta-btn {
-  @apply inline-flex items-center justify-center h-[34px] px-5 bg-ds-plasma-500 text-ds-obsidian-900 font-ds-body text-[12px] font-bold tracking-[0.02em] no-underline rounded-sm;
+  @apply inline-flex items-center justify-center h-[34px] px-5 bg-ds-plasma-500 text-ds-obsidian-900 font-ds-body text-xs font-bold tracking-[0.02em] no-underline rounded-sm;
   transition: background 180ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 .banner-frame__cta-btn:hover {

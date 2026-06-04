@@ -12,7 +12,7 @@ const specs = [
 </script>
 
 <template>
-  <div class="max-w-[1200px] mx-auto px-10 py-12 max-[640px]:px-5 max-[640px]:py-8">
+  <div class="max-w-300 mx-auto px-10 py-12 max-[640px]:px-5 max-[640px]:py-8">
 
     <!-- Page header -->
     <div class="flex items-start justify-between gap-6 mb-10">
@@ -27,7 +27,7 @@ const specs = [
         :href="`${base}banner/`"
         target="_blank"
         rel="noopener"
-        class="shrink-0 font-ds-mono text-[11px] tracking-[0.1em] uppercase text-ds-plasma-500 no-underline border border-ds-plasma-500/30 px-3 py-2 rounded-[2px] transition-colors duration-150 hover:border-ds-plasma-500 hover:bg-ds-plasma-500/5 whitespace-nowrap"
+        class="shrink-0 font-ds-mono text-[11px] tracking-widest uppercase text-ds-plasma-500 no-underline border border-ds-plasma-500/30 px-3 py-2 rounded-xs transition-colors duration-150 hover:border-ds-plasma-500 hover:bg-ds-plasma-500/5 whitespace-nowrap"
       >Open standalone ↗</a>
     </div>
 
@@ -36,7 +36,7 @@ const specs = [
 
       <!-- The actual 300×600 banner, rendered as a Vue component -->
       <div class="shrink-0">
-        <div class="border border-edge rounded-[2px] overflow-hidden shadow-[0_0_0_1px_rgba(111,228,243,0.06),0_24px_48px_rgba(0,0,0,0.6)]">
+        <div class="border border-edge rounded-xs overflow-hidden shadow-[0_0_0_1px_rgba(111,228,243,0.06),0_24px_48px_rgba(0,0,0,0.6)]">
           <BannerAd />
         </div>
       </div>
@@ -50,7 +50,7 @@ const specs = [
             <li
               v-for="spec in specs"
               :key="spec"
-              class="text-[13px] text-faint pl-4 relative leading-[1.5] before:content-['–'] before:absolute before:left-0 before:text-ds-plasma-500"
+              class="text-[13px] text-faint pl-4 relative leading-normal before:content-['–'] before:absolute before:left-0 before:text-ds-plasma-500"
             >{{ spec }}</li>
           </ul>
         </section>
@@ -58,22 +58,22 @@ const specs = [
         <section>
           <h2 class="font-ds-mono text-[10px] tracking-[0.14em] uppercase text-faint mb-4">Animation Sequence</h2>
           <div class="flex flex-col gap-2">
-            <div class="flex items-start gap-3 p-3 border border-edge rounded-[2px]">
-              <span class="font-ds-mono text-[9px] tracking-[0.1em] uppercase text-ds-plasma-500 shrink-0 pt-0.5">F1</span>
+            <div class="flex items-start gap-3 p-3 border border-edge rounded-xs">
+              <span class="font-ds-mono text-[9px] tracking-widest uppercase text-ds-plasma-500 shrink-0 pt-0.5">F1</span>
               <div>
                 <p class="text-[13px] text-fg font-medium">Cryo-ready. Wake clear.</p>
                 <p class="text-[11px] text-faint mt-0.5">Hold 3.2 s · pure type statement · no CTA</p>
               </div>
             </div>
-            <div class="flex items-start gap-3 p-3 border border-edge rounded-[2px]">
-              <span class="font-ds-mono text-[9px] tracking-[0.1em] uppercase text-ds-plasma-500 shrink-0 pt-0.5">F2</span>
+            <div class="flex items-start gap-3 p-3 border border-edge rounded-xs">
+              <span class="font-ds-mono text-[9px] tracking-widest uppercase text-ds-plasma-500 shrink-0 pt-0.5">F2</span>
               <div>
                 <p class="text-[13px] text-fg font-medium">Zero post-thaw hangover in clinical trials.</p>
                 <p class="text-[11px] text-faint mt-0.5">Hold 3.2 s · capsule entrance animation · CTA</p>
               </div>
             </div>
-            <div class="flex items-start gap-3 p-3 border border-edge rounded-[2px]">
-              <span class="font-ds-mono text-[9px] tracking-[0.1em] uppercase text-ds-plasma-500 shrink-0 pt-0.5">F3</span>
+            <div class="flex items-start gap-3 p-3 border border-edge rounded-xs">
+              <span class="font-ds-mono text-[9px] tracking-widest uppercase text-ds-plasma-500 shrink-0 pt-0.5">F3</span>
               <div>
                 <p class="text-[13px] text-fg font-medium">Cleared for missions ≥ 90 days.</p>
                 <p class="text-[11px] text-faint mt-0.5">Final hold · counter 0 → 412 · staggered reveal · CTA</p>
